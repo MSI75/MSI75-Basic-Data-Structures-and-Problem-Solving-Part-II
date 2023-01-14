@@ -1,26 +1,26 @@
+
 #include <bits/stdc++.h>
 using namespace std;
 
 vector<int> quick_sort(vector<int> &arr)
 {
+
     if (arr.size() <= 1)
         return arr;
+    int pivot = rand() % arr.size();
 
-    int pivot = arr.size() - 1;
+    vector<int> a;
+    vector<int> b;
 
-    // int pivot = rand() % arr.size();
-
-    vector<int> a, b;
     for (int i = 0; i < arr.size(); i++)
     {
-        if (i == arr[pivot])
+        if(i==pivot){
             continue;
-
-        if (arr[i] <= arr[pivot])
+        }
+        if (arr[i] > arr[pivot])
         {
             a.push_back(arr[i]);
         }
-
         else
         {
             b.push_back(arr[i]);
@@ -49,11 +49,21 @@ vector<int> quick_sort(vector<int> &arr)
 
 int main()
 {
-    vector<int> arr = {7, 5, 1, 4, 2, 1, 3};
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
 
-    vector<int> ans = quick_sort(arr);
+    
+    int n;
+    cin>>n;
+    vector<int>a(n);
 
-    for (int i = 0; i < arr.size(); i++)
+    for(int i = 0; i<n; i++){
+        cin>>a[i];
+    }
+
+    vector<int> ans = quick_sort(a);
+
+    for (int i = 0; i < ans.size(); i++)
     {
         cout << ans[i] << " ";
     }
