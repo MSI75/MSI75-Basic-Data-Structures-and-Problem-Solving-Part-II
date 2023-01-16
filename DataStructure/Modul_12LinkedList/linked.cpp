@@ -103,6 +103,37 @@ public:
         a->next = newNode;
     }
 
+    void insertAfterValue(int value, int data){
+        Node *a = head;
+
+        while(a!=NULL){
+            if(a->data==value){
+                break;
+            }
+            a = a->next;
+        }
+        if(a==NULL){
+            cout<<"Doesn't exits\n";
+        }
+        size++;
+        Node *newNode = CreateNewNode(data);
+        newNode->next = a->next;
+        a->next = newNode;
+    }
+
+    void reverse(Node *a){
+        if(a==NULL){
+            return;
+        }
+        reverse(a->next);
+        cout<<a->data<<" ";
+    }
+
+    void reversePrint(){
+        reverse(head);
+        cout<<"\n";
+    }
+
     void deleteAtHead()
     {
         if (head == NULL)
@@ -134,7 +165,6 @@ public:
             a = a->next;
             cur_index++;
         }
-
         Node *b = a->next;
         a->next = b->next;
         delete b;
@@ -171,4 +201,11 @@ int main()
     l.deleteAtAnyIndex(3);
     l.traverse();
     cout<<l.getSize()<<"\n";
+
+    l.insertAfterValue(45,100);
+    l.traverse();
+    cout<<l.getSize()<<"\n";
+
+    l.reversePrint();
+
 }
