@@ -1,4 +1,4 @@
- // ~DoublyLinkdedList()
-    // {
-    //     delete head;
-    // }
+if (index < 0 || index > size)
+        // {
+        //     return;
+        // }
