@@ -45,10 +45,10 @@ public:
             return;
         }
 
-        Node *a = head;
+        Node *a = this->head;
         newNode->next = a;
         a->prev = newNode;
-        head = newNode;
+        this->head = newNode;
     }
 
     void insertAnyValue(int index, int data)
@@ -63,7 +63,7 @@ public:
             insertAtHead(data);
         }
 
-        Node *a = head;
+        Node *a = this->head;
 
         int curr_index = 0;
 
@@ -106,7 +106,7 @@ public:
         //     deleteAtHead();
         // }
 
-        Node *a = head;
+        Node *a = this->head;
         int curr_index = 0;
         while (curr_index != index)
         {
@@ -129,29 +129,48 @@ public:
         size--;
     }
 
-    void reverse()
-    {
-        if (head == NULL)
-        {
-            return;
-        }
+    // void reverse()
+    // {
+    //     if (head == NULL)
+    //     {
+    //         return;
+    //     }
 
-        Node *a = head;
-        int curr_index = 0;
-        while (curr_index != size - 1)
-        {
-            a = a->next;
-            curr_index++;
-        }
+    //     Node *a = head;
+    //     int curr_index = 0;
+    //     while (curr_index != size - 1)
+    //     {
+    //         a = a->next;
+    //         curr_index++;
+    //     }
 
-        Node *b = head;
-        while (b != NULL)
-        {
-            swap(b->next, b->prev);
-            b = b->prev;
-        }
-        head = a;
+    //     Node *b = head;
+    //     while (b != NULL)
+    //     {
+    //         swap(b->next, b->prev);
+    //         b = b->prev;
+    //     }
+    //     head = a;
+    // }
+
+    void reverse(){
+    if(this->head==NULL){
+        return;
     }
+
+    Node *a = head;
+    int curr_index = 0;
+    while(curr_index!=size-1){
+        a = a->next;
+        curr_index++;
+    }
+    Node *b = head;
+    while(b!=NULL){
+        swap(b->next, b->prev);
+        b = b->prev;
+    }
+    this->head = a;
+   }
 
     void traverse()
     {
@@ -189,5 +208,5 @@ int main()
 
     l.reverse();
     l.traverse();
-    cout << l.getSize() << "\n";
+    // cout << l.getSize() << "\n";
 }

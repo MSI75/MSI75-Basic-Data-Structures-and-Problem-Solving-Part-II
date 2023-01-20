@@ -44,13 +44,247 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+//     vector<int> v(1);
+//     v[0] = 9;
+//     v.resize(9);
+//     cout << v.back() << '\n';
+//     return 0;
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// const int INF = 1000000;
+
+// int n, m, S, T;
+// vector<pair<int, int>> graph[20005];
+// int dist[20005];
+// bool visited[20005];
+
+// void Dijkstra(int start) {
+//     memset(dist, 0x3f, sizeof(dist));
+//     memset(visited, false, sizeof(visited));
+//     dist[start] = 0;
+//     priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+//     pq.push({0, start});
+//     while (!pq.empty()) {
+//         int cur = pq.top().second;
+//         pq.pop();
+//         if (visited[cur]) continue;
+//         visited[cur] = true;
+//         for (auto e : graph[cur]) {
+//             int next = e.first, weight = e.second;
+//             if (dist[next] > dist[cur] + weight) {
+//                 dist[next] = dist[cur] + weight;
+//                 pq.push({dist[next], next});
+//             }
+//         }
+//     }
+// }
+
+// int main() {
+//     int t;
+//     cin >> t;
+//     for (int i = 1; i <= t; i++) {
+//         cin >> n >> m >> S >> T;
+//         for (int j = 0; j < n; j++)
+//             graph[j].clear();
+//         for (int j = 0; j < m; j++) {
+//             int u, v, w;
+//             cin >> u >> v >> w;
+//             graph[u].push_back({v, w});
+//             graph[v].push_back({u, w});
+//         }
+//         Dijkstra(S);
+//         cout << "Case #" << i << ": ";
+//         if (dist[T] == INF) {
+//             cout << "unreachable" << endl;
+       
+//         }
+//     }
+// }
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+// int T, n, m, q, k, x, ans;
+// vector<vector<int>> transition, query;
+// string state;
+
+// int main() {
+//     cin >> T;
+//     for (int i = 1; i <= T; i++) {
+//         cin >> n >> m;
+//         transition.assign(n, vector<int>(m));
+//         for (int j = 0; j < m; j++) {
+//             cin >> k;
+//             while (k--) {
+//                 cin >> x;
+//                 transition[x][j] = 1;
+//             }
+//         }
+//         cin >> q;
+//         cout << "Case " << i << ":" << endl;
+//         while (q--) {
+//             cin >> state;
+//             query.assign(1, vector<int>(n));
+//             for (int j = 0; j < n; j++)
+//                 query[0][j] = state[j] - '0';
+//             ans = 0;
+//             for (int j = 0; j < m; j++) {
+//                 int cnt = 0;
+//                 for (int k = 0; k < n; k++)
+//                     if (query[0][k] && !transition[k][j])
+//                         cnt++;
+//                 if (cnt == n) {
+//                     ans = -1;
+//                     break;
+//                 }
+//                 if (cnt < n) {
+//                     ans++;
+//                     for (int k = 0; k < n; k++)
+//                         query[0][k] ^= transition[k][j];
+//                 }
+//             }
+//             cout << ans << endl;
+//         }
+//         if (i < T)
+//             cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// const int MAXN = 15, MAXM = 40;
+
+// int T, n, m, q;
+// vector<int> buttons[MAXM];
+
+// int main() {
+//     cin >> T;
+//     for (int t = 1; t <= T; t++) {
+//         cin >> n >> m;
+
+//         // Initialize transition matrix
+//         vector<vector<int>> trans(n, vector<int>(m));
+//         for (int i = 0; i < m; i++) {
+//             int k;
+//             cin >> k;
+//             buttons[i].resize(k);
+//             for (int j = 0; j < k; j++) {
+//                 cin >> buttons[i][j];
+//                 trans[buttons[i][j]][i] = 1;
+//             }
+//         }
+
+//         cin >> q;
+//         cout << "Case " << t << ":\n";
+//         for (int i = 0; i < q; i++) {
+//             string state;
+//             cin >> state;
+
+//             // Initialize matrix for initial state
+//             vector<vector<int>> mat(1, vector<int>(n));
+//             for (int j = 0; j < n; j++) {
+//                 mat[0][j] = state[j] - '0';
+//             }
+
+//             // Perform matrix multiplication on transition matrix and initial state
+//             vector<vector<int>> ans = mat;
+//             for (int j = 0; j < m; j++) {
+//                 vector<vector<int>> temp(ans.size(), vector<int>(n));
+//                 for (int k = 0; k < ans.size(); k++) {
+//                     for (int l = 0; l < n; l++) {
+//                         for (int p = 0; p < n; p++) {
+//                             temp[k][l] += ans[k][p] * trans[p][j];
+//                         }
+//                     }
+//                 }
+//                 ans = temp;
+//             }
+
+//             // Count number of non-zero elements in final state matrix
+//             int cnt = 0;
+//             for (int j = 0; j < ans.size(); j++) {
+//                 for (int k = 0; k < n; k++) {
+//                     if (ans[j][k] != 0) cnt++;
+//                 }
+//             }
+
+//             // Print minimum number of button presses or -1 if state is not reachable
+//             if (cnt == n) cout << cnt << endl;
+//             else cout << -1 << endl;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+#include <iostream>
+#include <vector>
 using namespace std;
 
+// Function to find the minimum number of button presses needed to reach the desired state
+int minPresses(vector<vector<int>> &transition, vector<int> &state) {
+    vector<int> current = state; // Initialize the current state to the desired state
+    int pressCount = 0; // Initialize the number of button presses to 0
+    for (int i = 0; i < transition.size(); i++) { // Iterate through the transition matrix
+        for (int j = 0; j < transition[i].size(); j++) { // Iterate through the columns of the transition matrix
+            if (transition[i][j] == 1 && current[i] == 0) { // If the button press changes the state of the light and the light is currently off
+                current[i] = 1; // Change the state of the light
+                pressCount++; // Increment the number of button presses
+            }
+            else if (transition[i][j] == 1 && current[i] == 1) { // If the button press changes the state of the light and the light is currently on
+                current[i] = 0; // Change the state of the light
+                pressCount++; // Increment the number of button presses
+            }
+        }
+    }
+    for (int i = 0; i < current.size(); i++) { // Check if all lights are in the desired state
+        if (current[i] == state[i]) {
+            return -1; // If not, return -1
+        }
+    }
+    return pressCount; // Otherwise, return the number of button presses
+}
+
 int main() {
-    vector<int> v(1);
-    v[0] = 9;
-    v.resize(9);
-    cout << v.back() << '\n';
+    int T; // Number of test cases
+    cin >> T;
+    for (int t = 1; t <= T; t++) {
+        int n, m, k, q; // Number of tube lights, buttons, and queries
+        cin >> n >> m;
+        vector<vector<int>> transition(n, vector<int>(m)); // Initialize the transition matrix
+        for (int i = 0; i < m; i++) { // Read in the list of tube lights that change states for each button
+            cin >> k;
+            for (int j = 0; j < k; j++) {
+                int light;
+                cin >> light;
+                transition[light][i] = 1; // Update the transition matrix
+            }
+        }
+        cin >> q;
+        cout << "Case " << t << ":" << endl;
+        for (int i = 0; i < q; i++) {
+            string stateStr;
+            cin >> stateStr;
+            vector<int> state(n); // Initialize the desired state
+            for (int j = 0; j < n; j++) {
+                state[j] = stateStr[j] - '0'; // Convert the binary string to an integer array
+            }
+            int pressCount = minPresses(transition, state); // Find the minimum number of button presses
+            cout << pressCount << endl;
+        }
+        cout << endl;
+    }
     return 0;
 }
