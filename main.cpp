@@ -229,62 +229,101 @@
 // }
 
 
-#include <iostream>
-#include <vector>
+// #include <iostream>
+// #include <vector>
+// using namespace std;
+
+// // Function to find the minimum number of button presses needed to reach the desired state
+// int minPresses(vector<vector<int>> &transition, vector<int> &state) {
+//     vector<int> current = state; // Initialize the current state to the desired state
+//     int pressCount = 0; // Initialize the number of button presses to 0
+//     for (int i = 0; i < transition.size(); i++) { // Iterate through the transition matrix
+//         for (int j = 0; j < transition[i].size(); j++) { // Iterate through the columns of the transition matrix
+//             if (transition[i][j] == 1 && current[i] == 0) { // If the button press changes the state of the light and the light is currently off
+//                 current[i] = 1; // Change the state of the light
+//                 pressCount++; // Increment the number of button presses
+//             }
+//             else if (transition[i][j] == 1 && current[i] == 1) { // If the button press changes the state of the light and the light is currently on
+//                 current[i] = 0; // Change the state of the light
+//                 pressCount++; // Increment the number of button presses
+//             }
+//         }
+//     }
+//     for (int i = 0; i < current.size(); i++) { // Check if all lights are in the desired state
+//         if (current[i] == state[i]) {
+//             return -1; // If not, return -1
+//         }
+//     }
+//     return pressCount; // Otherwise, return the number of button presses
+// }
+
+// int main() {
+//     int T; // Number of test cases
+//     cin >> T;
+//     for (int t = 1; t <= T; t++) {
+//         int n, m, k, q; // Number of tube lights, buttons, and queries
+//         cin >> n >> m;
+//         vector<vector<int>> transition(n, vector<int>(m)); // Initialize the transition matrix
+//         for (int i = 0; i < m; i++) { // Read in the list of tube lights that change states for each button
+//             cin >> k;
+//             for (int j = 0; j < k; j++) {
+//                 int light;
+//                 cin >> light;
+//                 transition[light][i] = 1; // Update the transition matrix
+//             }
+//         }
+//         cin >> q;
+//         cout << "Case " << t << ":" << endl;
+//         for (int i = 0; i < q; i++) {
+//             string stateStr;
+//             cin >> stateStr;
+//             vector<int> state(n); // Initialize the desired state
+//             for (int j = 0; j < n; j++) {
+//                 state[j] = stateStr[j] - '0'; // Convert the binary string to an integer array
+//             }
+//             int pressCount = minPresses(transition, state); // Find the minimum number of button presses
+//             cout << pressCount << endl;
+//         }
+//         cout << endl;
+//     }
+//     return 0;
+// }
+
+
+// #include<bits/stdc++.h>
+// using namespace std;
+
+
+// int print(int n)
+// {
+//     if(n==0)
+//         return 0;
+
+//     cout<<n<<" ";
+
+//     print(n-1);
+// }
+// int main(){
+
+//   print(5);
+
+//   return 0;
+
+// }
+
+#include<bits/stdc++.h>
 using namespace std;
+#include<stdio.h>
 
-// Function to find the minimum number of button presses needed to reach the desired state
-int minPresses(vector<vector<int>> &transition, vector<int> &state) {
-    vector<int> current = state; // Initialize the current state to the desired state
-    int pressCount = 0; // Initialize the number of button presses to 0
-    for (int i = 0; i < transition.size(); i++) { // Iterate through the transition matrix
-        for (int j = 0; j < transition[i].size(); j++) { // Iterate through the columns of the transition matrix
-            if (transition[i][j] == 1 && current[i] == 0) { // If the button press changes the state of the light and the light is currently off
-                current[i] = 1; // Change the state of the light
-                pressCount++; // Increment the number of button presses
-            }
-            else if (transition[i][j] == 1 && current[i] == 1) { // If the button press changes the state of the light and the light is currently on
-                current[i] = 0; // Change the state of the light
-                pressCount++; // Increment the number of button presses
-            }
-        }
-    }
-    for (int i = 0; i < current.size(); i++) { // Check if all lights are in the desired state
-        if (current[i] == state[i]) {
-            return -1; // If not, return -1
-        }
-    }
-    return pressCount; // Otherwise, return the number of button presses
+int print(int n)
+{
+    if(n==0)
+        return 0;
+    print(n-1);
+    cout<<n<<" ";
 }
+int main(){
+  print(5);
 
-int main() {
-    int T; // Number of test cases
-    cin >> T;
-    for (int t = 1; t <= T; t++) {
-        int n, m, k, q; // Number of tube lights, buttons, and queries
-        cin >> n >> m;
-        vector<vector<int>> transition(n, vector<int>(m)); // Initialize the transition matrix
-        for (int i = 0; i < m; i++) { // Read in the list of tube lights that change states for each button
-            cin >> k;
-            for (int j = 0; j < k; j++) {
-                int light;
-                cin >> light;
-                transition[light][i] = 1; // Update the transition matrix
-            }
-        }
-        cin >> q;
-        cout << "Case " << t << ":" << endl;
-        for (int i = 0; i < q; i++) {
-            string stateStr;
-            cin >> stateStr;
-            vector<int> state(n); // Initialize the desired state
-            for (int j = 0; j < n; j++) {
-                state[j] = stateStr[j] - '0'; // Convert the binary string to an integer array
-            }
-            int pressCount = minPresses(transition, state); // Find the minimum number of button presses
-            cout << pressCount << endl;
-        }
-        cout << endl;
-    }
     return 0;
 }
