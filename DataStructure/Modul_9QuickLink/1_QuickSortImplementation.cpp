@@ -49,11 +49,20 @@ vector<int> quick_sort(vector<int> &arr)
 
 int main()
 {
-    vector<int> arr = {7, 5, 1, 4, 2, 1, 3};
+    // vector<int> arr = {7, 5, 1, 4, 2, 1, 3};
+     int n;
+    cin >> n;
+    vector<int> arr(n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
 
     vector<int> ans = quick_sort(arr);
 
-    for (int i = 0; i < arr.size(); i++)
+    for (int i = 0; i < n; i++)
     {
         cout << ans[i] << " ";
     }
