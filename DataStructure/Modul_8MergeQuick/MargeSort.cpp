@@ -56,7 +56,14 @@ vector<int> marge_sort(vector<int> a)
 
 int main()
 {
-    vector<int> arr = {4, 5, 6, 1, 2, 7, 8, 3, 9};
+    // vector<int> arr = {4, 5, 6, 1, 2, 7, 8, 3, 9};
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+
+    for(int i = 0; i<n; i++){
+        cin>>arr[i];
+    }
 
     vector<int> ans = marge_sort(arr);
 
