@@ -11,6 +11,7 @@ public:
 
 class DoublyLinkedList
 {
+    public:
     Node *head;
     int size;
 
@@ -23,7 +24,7 @@ class DoublyLinkedList
         return newNode;
     }
 
-public:
+
     DoublyLinkedList()
     {
         this->head = NULL;
@@ -81,18 +82,23 @@ public:
         a->next = newNode;
         size++;
     }
+    // Delete at head O(1)
+    void deleteAtHead()
+    {
+        if (head == NULL)
+        {
+            return;
+        }
+        Node *node = head;
+        Node *node1 = head->next;
+        delete node;
 
-    // void deleteAtHead()
-    // {
-    //     if (head == NULL)
-    //     {
-    //         return;
-    //     }
-    //     Node *node = head;
-    //     head = node->next;
-    //     size--;
-    //     delete node;
-    // }
+        if(node1!=NULL){
+            node1->prev = NULL;
+        }
+        head = node1;
+        size--;
+    }
 
     void deleteAnyValue(int index)
     {
@@ -190,23 +196,52 @@ public:
     }
 };
 
+class Stack{
+    public:
+    DoublyLinkedList dl;
+    Stack(){
+
+    }
+
+    int top(){
+        if(dl.getSize()==0){
+            cout<<"Stack is empty!\n";
+            return -1;
+        }
+        return dl.head->data;
+    }
+
+    void push(int value){
+        dl.insertAtHead(value);
+    }
+
+    void pop(){
+        if(dl.getSize()==0){
+            cout<<"Stack is empty!\n";
+            return;
+        }
+        dl.deleteAtHead();
+    }
+};
+
 int main()
 {
-    DoublyLinkedList l;
-    l.insertAtHead(75);
-    l.insertAtHead(36);
-    l.insertAtHead(25);
-    l.insertAtHead(79);
-    l.traverse();
+   Stack s;
+    s.push(5);
+    cout<<s.top()<<"\n";
+     s.push(6);
+    cout<<s.top()<<"\n";
+     s.push(7);
+    cout<<s.top()<<"\n";
+     s.push(8);
+    cout<<s.top()<<"\n";
 
-    // l.insertAnyValue(2, 100);
-    // // l.deleteAtHead();
-    // l.deleteAnyValue(4);
-    // l.traverse();
-    // l.reverse();
-    // l.traverse();
-
-    l.reverse();
-    l.traverse();
-    // cout << l.getSize() << "\n";
+    s.pop();
+    cout<<s.top()<<"\n";
+    s.pop();
+    cout<<s.top()<<"\n";
+    s.pop();
+    cout<<s.top()<<"\n";
+    s.pop();
+    cout<<s.top()<<"\n";
 }
