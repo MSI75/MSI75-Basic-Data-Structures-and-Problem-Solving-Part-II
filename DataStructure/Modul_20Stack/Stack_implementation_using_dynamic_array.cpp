@@ -38,7 +38,6 @@ class Stack{
             cout<<"Stack is empty !\n";
             return;
         }
-        arr[stack_size-1] = 0;
         stack_size = stack_size - 1;
     }
 
