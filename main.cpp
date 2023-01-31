@@ -328,14 +328,49 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// using namespace std;
+
+// int main() {
+
+//     vector<int> v(5);
+//     v[(v.size() - 1) * v.back()] *= 1;
+//     cout << v.back() << '\n';
+//     return 0;
+// }
+
+// #include <iostream>
+
+// using namespace std;
+// template <typename T>
+// T Sum(T p, T q)
+// {
+//     return p+q;
+// }
+// int main ()
+// {
+//     int x = 55, y = 60, result;
+
+//     result = Sum<int>(x, y);
+
+//     cout << result << endl;
+//     return 0;
+// }
+
+#include <iostream>
+
 using namespace std;
-
-int main() {
-
-    vector<int> v(5);
-    v[(v.size() - 1) * v.back()] *= 1;
-    cout << v.back() << '\n';
+template <typename INT,typename FLOAT>
+FLOAT Sum(INT p, FLOAT q)
+{
+    return p+q;
+}
+int main ()
+{
+    int x = 55;
+    float result,y = 60.55;
+    result = Sum<int,float>(x, y);
+    cout << result << endl;
     return 0;
 }
 
