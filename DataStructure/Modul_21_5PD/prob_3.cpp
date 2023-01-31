@@ -16,7 +16,7 @@ class Stack
         {
             temp[i] = arr[i];
         }
-        delete temp;
+        delete []temp;
         cap_size = cap_size * 2;
     }
 
