@@ -54,24 +54,15 @@ int main()
 {
     Stack<int> s;
     s.push(7);
-    cout << s.top() << "\n";
     s.push(6);
-    cout << s.top() << "\n";
-    s.push(5);
-    cout << s.top() << "\n";
+    s.push(8);
     s.push(4);
-    cout << s.top() << "\n";
-    s.push(3);
-    cout << s.top() << "\n\n";
+    s.push(9);
 
-    s.pop();
-    cout << s.top() << "\n";
-    s.pop();
-    cout << s.top() << "\n";
-    s.pop();
-    cout << s.top() << "\n";
-    s.pop();
-    cout << s.top() << "\n";
-    s.pop();
-    cout << s.top() << "\n";
+    while(s.stack_size>0){
+        cout<<s.top()<<"\n";
+        s.pop();
+    }
+
+   
 }
