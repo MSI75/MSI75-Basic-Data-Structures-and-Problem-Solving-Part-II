@@ -13,6 +13,19 @@ void print(list<int>l){
     cout<<"\n";
     
 }
+// O(n)
+void inseart(list<int>&l, int index, int value){
+    auto it = l.begin(); // O(1)
+    advance(it, index);  // O(n)
+    l.insert(it, value); // O(1)
+}
+
+// O(n)
+void Delete(list<int>&l, int index){
+    auto it = l.begin(); // O(1)
+    advance(it, index); // O(n)
+    l.erase(it); // O(1)
+}
 
 int main(){
     list<int>l;
@@ -32,4 +45,14 @@ int main(){
 
     l.pop_front();
     print(l);
+
+    inseart(l, 1, 100);
+    print(l);
+
+    Delete(l,2);
+    print(l);
+
+    cout<<l.size()<<"\n";
+
+
 }
