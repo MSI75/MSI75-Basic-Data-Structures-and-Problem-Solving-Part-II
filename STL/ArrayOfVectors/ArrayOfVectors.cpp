@@ -18,7 +18,7 @@ int main(){
     for(int i = 0; i<N; ++i){
         int n;
         cin>>n;
-        for(int i = 0; i<n; ++i){
+        for(int j = 0; j<n; ++j){
             int x;
             cin>>x;
             v[i].push_back(x);
