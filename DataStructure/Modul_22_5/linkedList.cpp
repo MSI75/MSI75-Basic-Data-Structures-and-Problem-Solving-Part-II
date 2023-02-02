@@ -30,7 +30,8 @@ bool search(list<int> &l, int value)
 
 void deleteZero(list<int> &l)
 {
-    l.erase(remove(l.begin(), l.end(), 0), l.end());
+    // l.erase(remove(l.begin(), l.end(), 0), l.end());
+    l.remove(0);
 }
 int main()
 {
