@@ -13,4 +13,7 @@ int main()
         cout << it->first << " " << it->second << "\n";
     }
     cout << "\n";
+
+    // (*it).first <=> it->first
+    // (*it).second <=> it->second
 }
