@@ -23,7 +23,7 @@ int main(){
     if(it!=mp.end())
         mp.erase(it);
 
-    mp.clear();
+    // mp.clear();
     
     // auto it = mp.find(5); // O(log(n))
     // if(it==mp.end()){
