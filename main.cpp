@@ -357,21 +357,105 @@
 //     return 0;
 // }
 
-#include <iostream>
+// #include <iostream>
 
+// using namespace std;
+// template <typename INT,typename FLOAT>
+// FLOAT Sum(INT p, FLOAT q)
+// {
+//     return p+q;
+// }
+// int main ()
+// {
+//     int x = 55;
+//     float result,y = 60.55;
+//     result = Sum<int,float>(x, y);
+//     cout << result << endl;
+//     return 0;
+// }
+
+
+#include<bits/stdc++.h>
 using namespace std;
-template <typename INT,typename FLOAT>
-FLOAT Sum(INT p, FLOAT q)
-{
-    return p+q;
-}
-int main ()
-{
-    int x = 55;
-    float result,y = 60.55;
-    result = Sum<int,float>(x, y);
-    cout << result << endl;
+
+template<class T>
+class Stack{
+    T *arr;
+    int stack_size;
+    int cap_arr;
+    public:
+    int size;
+    Stack(){
+        arr = new T[1];
+        stack_size = 0;
+        cap_arr = 1;
+        size = 0;
+    }
+    void inrease(){
+        T *temp;
+        temp = new T[cap_arr*2];
+        for(int i = 0; i<cap_arr; i++){
+            temp[i] = arr[i];
+        }
+        cap_arr = cap_arr*2;
+    }
+
+    void push(T value){
+        size++;
+        if(stack_size>cap_arr){
+            inrease();
+        }
+        stack_size = stack_size + 1;
+        arr[stack_size-1] = value;
+    }
+
+    void pop(){
+        if(stack_size==0){
+            cout<<"Stack is empty!\n";
+            return;
+        }
+        size--;
+        stack_size = stack_size - 1;
+    }
+
+    void top(){
+        if(stack_size==0){
+            cout<<"Stack is empty!\n";
+            return;
+        }
+        cout<<arr[stack_size-1]<<"\n";
+    }
+};
+
+int main(){
+    Stack<char>st;
+    st.push('A');
+    st.push('B');
+    st.push('C');
+    while(st.size>0){
+        st.top();
+        st.pop();
+    }
+
+    Stack<int>st1;
+    st1.push(7);
+    st1.push(5);
+    st1.push(6);
+    while (st1.size>0)
+    {
+        st1.top();
+        st1.pop();
+    }
+
+    Stack<double>st3;
+    st3.push(3.45);
+    st3.push(9.32);
+    st3.push(4.57);
+
+    while(st3.size>0){
+        st3.top();
+        st3.pop();
+    }
+    
     return 0;
 }
-
-
