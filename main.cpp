@@ -10,7 +10,6 @@
 //     return 0;
 // }
 
-
 // #include <bits/stdc++.h>
 // using namespace std;
 
@@ -20,7 +19,6 @@
 //     cout << v.front() << '\n';
 //     return 0;
 // }
-
 
 // #include <bits/stdc++.h>
 // using namespace std;
@@ -103,7 +101,7 @@
 //         cout << "Case #" << i << ": ";
 //         if (dist[T] == INF) {
 //             cout << "unreachable" << endl;
-       
+
 //         }
 //     }
 // }
@@ -157,7 +155,6 @@
 //     }
 //     return 0;
 // }
-
 
 // #include <iostream>
 // #include <vector>
@@ -228,7 +225,6 @@
 //     return 0;
 // }
 
-
 // #include <iostream>
 // #include <vector>
 // using namespace std;
@@ -289,10 +285,8 @@
 //     return 0;
 // }
 
-
 // #include<bits/stdc++.h>
 // using namespace std;
-
 
 // int print(int n)
 // {
@@ -373,7 +367,6 @@
 //     cout << result << endl;
 //     return 0;
 // }
-
 
 // #include<bits/stdc++.h>
 // using namespace std;
@@ -456,7 +449,7 @@
 //         st3.top();
 //         st3.pop();
 //     }
-    
+
 //     return 0;
 // }
 
@@ -474,14 +467,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-    vector<int> v;
-    for (int i = 1;i <= 5;i++)
-        v.push_back(i);
-    v.pop_back();
-    cout << v.size() << '\n';
-    v.push_back(5 * 5);
+int main()
+{
+    map<int,int>mp;
+    mp[0] = 11;
+    mp[1] = 15;
+    mp[2] = 25;
+    // auto p = mp.find(0);
+    // cout<<p->second<<"\n";
     return 0;
 }
-
-
