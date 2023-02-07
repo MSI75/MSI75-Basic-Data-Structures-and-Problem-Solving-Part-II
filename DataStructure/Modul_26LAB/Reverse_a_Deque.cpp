@@ -15,19 +15,17 @@ public:
     Node *head;
     Node *tail;
     int sz;
+    int rev;
     Deque()
     {
         head = NULL;
         tail = NULL;
         sz = 0;
+        rev = 0;
     }
-    ~Deque()
-    {
-        delete head;
-    }
+
     Node *createNewNode(int value)
     {
-
         Node *node = new Node;
         node->data = value;
         node->prev = NULL;
@@ -35,26 +33,7 @@ public:
         return node;
     }
 
-    // O(1)
-    void push_back(int value)
-    {
-
-        Node *newNode = createNewNode(value);
-        if (sz == 0)
-        {
-            head = newNode;
-            tail = newNode;
-            sz++;
-            return;
-        }
-        tail->next = newNode;
-        newNode->prev = tail;
-        tail = newNode;
-        sz++;
-    }
-
-    // O(1)
-    void push_front(int value)
+    void inseartAtHead(int value)
     {
         Node *newNode = createNewNode(value);
         if (sz == 0)
@@ -70,31 +49,23 @@ public:
         sz++;
     }
 
-    void pop_back()
+    void inseartAtTail(int value)
     {
+        Node *newNode = createNewNode(value);
         if (sz == 0)
         {
-            cout << "Deque is empty!\n";
+            head = newNode;
+            tail = newNode;
+            sz++;
             return;
         }
-
-        if (sz == 1)
-        {
-            delete tail;
-            head = NULL;
-            tail = NULL;
-            sz--;
-            return;
-        }
-
-        Node *a = tail;
-        tail = tail->prev;
-        delete a;
-        tail->next = NULL;
-        sz--;
+        tail->next = newNode;
+        newNode->prev = tail;
+        tail = newNode;
+        sz++;
     }
 
-    void pop_front()
+    void deleteAtHead()
     {
         if (sz == 0)
         {
@@ -118,15 +89,58 @@ public:
         sz--;
     }
 
-    int front()
+    void deleteAtTail()
     {
         if (sz == 0)
         {
-            cout << "Deque is empty!\n";
-            return -1;
+            cout << "Qeque is empty!\n";
+            return;
         }
+        if (sz == 1)
+        {
+            delete tail;
+            head = NULL;
+            tail = NULL;
+            sz--;
+            return;
+        }
+        Node *a = tail;
+        tail = tail->prev;
+        delete a;
+        tail->next = NULL;
+        sz--;
+    }
 
-        return head->data;
+    void push_front(int value)
+    {
+        if (rev == 0)
+            inseartAtHead(value);
+        else
+            inseartAtTail(value);
+    }
+
+    void push_back(int value)
+    {
+        if (rev == 0)
+            inseartAtTail(value);
+        else
+            inseartAtHead(value);
+    }
+
+    void pop_front()
+    {
+        if (rev == 0)
+            deleteAtTail();
+        else
+            deleteAtHead();
+    }
+
+    void pop_back()
+    {
+        if (rev == 0)
+            deleteAtHead();
+        else
+            deleteAtTail();
     }
 
     int back()
@@ -136,12 +150,31 @@ public:
             cout << "Deque is empty!\n";
             return -1;
         }
-        return tail->data;
+        if (rev == 0)
+            return tail->data;
+        else
+            return head->data;
     }
 
-    int getSize()
+    int front()
     {
-        return sz;
+        if (sz == 0)
+        {
+            cout << "Deque is empty!\n";
+            return -1;
+        }
+        if (rev == 0)
+            return head->data;
+        else
+            return tail->data;
+    }
+
+    void reverse_deque()
+    {
+        if (rev == 0)
+            rev = 1;
+        else
+            rev = 0;
     }
 };
 
@@ -152,12 +185,15 @@ int main()
     d.push_back(10);
     d.push_back(15);
     d.push_front(20);
-    cout << "Back : "<<d.back()<<" "<<"Front : "<<d.front()<<"\n";
+    d.reverse_deque();
+    cout << "Back : " << d.back() << " "
+         << "Front : " << d.front() << "\n";
 
     d.pop_front();
-    cout << "Back : "<<d.back()<<" "<<"Front : "<<d.front()<<"\n";
+    cout << "Back : " << d.back() << " "
+         << "Front : " << d.front() << "\n";
 
     d.pop_back();
-    
-    cout << "Back : "<<d.back()<<" "<<"Front : "<<d.front()<<"\n";
+    cout << "Back : " << d.back() << " "
+         << "Front : " << d.front() << "\n";
 }
