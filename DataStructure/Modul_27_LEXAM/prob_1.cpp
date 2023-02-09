@@ -1,27 +1,17 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+template <class T>
 class Queue
 {
-public:
-    int *arr;
-    int cap_arr;
-    int l, r;
-    int sz;
-    Queue()
-    {
-        arr = new int[1];
-        cap_arr = 1;
-        l = 0;
-        r = -1;
-        sz = 0;
-    }
+    T *arr;
+    int l, r, cap_arr, sz;
 
-    void remove_circular()
+    void remove_circuler()
     {
         if (l > r)
         {
-            int *temp = new int[cap_arr];
+            T *temp = new T[cap_arr];
             int idx = 0;
             for (int i = l; i < cap_arr; i++)
             {
@@ -29,11 +19,12 @@ public:
                 idx++;
             }
 
-            for (int i = 0; i <= r; i++)
+            for (int i = 0; i < r; i++)
             {
                 temp[idx] = arr[i];
                 idx++;
             }
+
             swap(temp, arr);
             l = 0;
             r = cap_arr - 1;
@@ -43,21 +34,33 @@ public:
 
     void increase()
     {
-        // remove_circular();
-
-        int *temp = new int[cap_arr * 2];
+        remove_circuler();
+        T *temp = new T[cap_arr * 2];
         for (int i = 0; i < cap_arr; i++)
+        {
             temp[i] = arr[i];
-        swap(arr, temp);
+        }
+        swap(temp, arr);
         cap_arr = cap_arr * 2;
         delete[] temp;
     }
 
-    void enqueue(int value)
+public:
+    Queue()
+    {
+        arr = new T[1];
+        l = 0;
+        r = -1;
+        cap_arr = 1;
+        sz = 0;
+    }
+
+    void enqueue(T value)
     {
         if (sz == cap_arr)
+        {
             increase();
-
+        }
         r++;
         if (r == cap_arr)
             r = 0;
@@ -74,46 +77,31 @@ public:
         }
         l++;
         if (l == cap_arr)
-        {
             l = 0;
-        }
         sz--;
     }
 
-    int front()
+    T front()
     {
         if (sz == 0)
         {
             cout << "Queue is empty!\n";
-            return -1;
+            T a;
+            return a;
         }
         return arr[l];
     }
-
-    int getSize()
-    {
-        return sz;
-    }
 };
 
-int main(){
-    Queue q;
-    q.enqueue(7);
-    q.enqueue(6);
-    q.enqueue(5);
-    q.enqueue(4);
-    q.enqueue(3);
-
-    cout << "size : " << q.getSize() << "\n";
+int main()
+{
+    Queue<char> q;
+    q.enqueue('a');
+    q.enqueue('b');
+    q.enqueue('c');
     cout << q.front() << "\n";
     q.dequeue();
     cout << q.front() << "\n";
     q.dequeue();
     cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << "size : " << q.getSize() << "\n";
 }
