@@ -191,7 +191,7 @@ int main()
     t.Inseartion(4, 8);
     t.Inseartion(5, 5);
     t.Inseartion(6, 7);
-    t.BFS();
+    // t.BFS(); 
     cout << "\n";
     t.Search(t.root, 5);
     cout << "\n";
