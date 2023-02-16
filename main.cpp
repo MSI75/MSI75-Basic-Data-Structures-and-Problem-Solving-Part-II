@@ -464,16 +464,34 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-int main()
-{
-    map<int,int>mp;
-    mp[0] = 11;
-    mp[1] = 15;
-    mp[2] = 25;
-    // auto p = mp.find(0);
-    // cout<<p->second<<"\n";
-    return 0;
-}
+// int main()
+// {
+//     map<int,int>mp;
+//     mp[0] = 11;
+//     mp[1] = 15;
+//     mp[2] = 25;
+//     // auto p = mp.find(0);
+//     // cout<<p->second<<"\n";
+//     return 0;
+// }
+
+
+// class Node {
+//      float data;
+//     char ch;
+//     Node* next;
+//     Node* next_to_next;
+// public:
+    
+//     // Constructor to initialize the node
+//     Node(float val, char c) {
+//         data = val;
+//         ch = c;
+//         next = NULL;
+//         next_to_next = NULL;
+//     }
+// };
+
