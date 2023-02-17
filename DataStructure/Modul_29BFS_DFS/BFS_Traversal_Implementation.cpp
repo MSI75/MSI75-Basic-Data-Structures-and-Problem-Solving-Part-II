@@ -122,8 +122,9 @@ public:
             if (a->parents != NULL)
                 p = a->parents->id;
 
-            cout << "Node id = " << a->id << " Left child = "
-                 << l << " Right child = " << r << " parents = " << p << "\n";
+            // cout << "Node id = " << a->id << " Left child = "
+            //      << l << " Right child = " << r << " parents = " << p << "\n";
+            cout<<a->id<<" ";
         }
     }
 
@@ -181,21 +182,26 @@ int main()
     // t.build_binary_tree();
     // t.BFS();
     // t.DFS(t.root);
-    // t.Inorder(t.root);
+    
     // t.Preorder(t.root);
 
-    t.Inseartion(0, 5);
-    t.Inseartion(1, 10);
-    t.Inseartion(2, 10);
-    t.Inseartion(3, 9);
-    t.Inseartion(4, 8);
-    t.Inseartion(5, 5);
-    t.Inseartion(6, 7);
-    // t.BFS(); 
-    cout << "\n";
-    t.Search(t.root, 5);
-    cout << "\n";
-    t.Search(t.root, 10);
-    cout << "\n";
+    t.Inseartion(20, 5);
+    t.Inseartion(10, 10);
+    t.Inseartion(22, 10);
+    t.Inseartion(5, 9);
+    t.Inseartion(12, 8);
+    t.Inseartion(21, 5);
+    t.Inseartion(25, 7);
+    t.Inseartion(3, 5);
+    t.Inseartion(15, 7);
+    // t.Inorder(t.root);
+    // t.Preorder(t.root);
+    // t.Postorder(t.root);
+    t.BFS(); 
+    // cout << "\n";
+    // t.Search(t.root, 5);
+    // cout << "\n";
+    // t.Search(t.root, 10);
+    // cout << "\n";
     // t.Postorder(t.root);
 }

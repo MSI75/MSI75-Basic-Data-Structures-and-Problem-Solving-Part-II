@@ -161,10 +161,11 @@ public:
             return;
         }
 
-        // case 3 : node has two chaild 
+        // case 3 : node has two chaild
 
         Node *temp = cur->Right;
-        while(temp->Left!=NULL){
+        while (temp->Left != NULL)
+        {
             temp = temp->Left;
         }
 
@@ -177,12 +178,15 @@ public:
 int main()
 {
     BST bst;
-    bst.Inseartion(6);
-    bst.Inseartion(4);
-    bst.Inseartion(3);
-    bst.Inseartion(5);
-    bst.Inseartion(7);
-    bst.Inseartion(8);
+    bst.Inseartion(50);
+    bst.Inseartion(30);
+    bst.Inseartion(100);
+    bst.Inseartion(20);
+    bst.Inseartion(40);
+    bst.Inseartion(80);
+    bst.Inseartion(75);
+    bst.Inseartion(90);
+    bst.Inseartion(70);
 
     // bst.BFS();
     // if (bst.Search(0))
@@ -191,7 +195,7 @@ int main()
     //     cout << "false\n";
 
     // bst.Delete(8);
-    bst.Delete(6);
+    // bst.Delete(6);
     bst.BFS();
 
     return 0;
