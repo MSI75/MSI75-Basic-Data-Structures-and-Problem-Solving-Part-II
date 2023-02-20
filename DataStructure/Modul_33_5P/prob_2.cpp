@@ -2,12 +2,12 @@
 using namespace std;
 
 template <class T>
-class MaxHeap
+class MinHeap
 {
     vector<T> nodes;
     void up_heapify(T idx)
     {
-        while (idx > 0 && nodes[idx] > nodes[(idx - 1) / 2])
+        while (idx > 0 && nodes[idx] < nodes[(idx - 1) / 2])
         {
             swap(nodes[idx], nodes[(idx - 1) / 2]);
             idx = (idx - 1) / 2;
@@ -21,9 +21,9 @@ class MaxHeap
             int l = 2 * idx + 1;
             int r = 2 * idx + 2;
 
-            if (l < nodes.size() && nodes[largest] < nodes[l])
+            if (l < nodes.size() && nodes[largest] > nodes[l])
                 largest = l;
-            if (r < nodes.size() && nodes[largest] < nodes[r])
+            if (r < nodes.size() && nodes[largest] > nodes[r])
                 largest = r;
             if (idx == largest)
                 break;
@@ -34,7 +34,7 @@ class MaxHeap
     }
 
 public:
-    MaxHeap() {}
+    MinHeap() {}
 
     void insert(T x)
     {
@@ -46,12 +46,10 @@ public:
     {
         if (idx > nodes.size())
             return;
-
         swap(nodes[idx], nodes[nodes.size() - 1]);
         nodes.pop_back();
         down_heapify(idx);
     }
-
     void Print()
     {
         for (int i = 0; i < nodes.size(); i++)
@@ -59,15 +57,14 @@ public:
         cout << "\n";
     }
 
-    int size()
-    {
+    int size(){
         return nodes.size();
     }
 };
 
 int main()
 {
-    MaxHeap<int> heap;
+    MinHeap<int> heap;
     heap.insert(4);
     heap.insert(7);
     heap.insert(9);
