@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Head Recursiv 
 int power(int n){
     // base case 
     if(n==0) return 1;

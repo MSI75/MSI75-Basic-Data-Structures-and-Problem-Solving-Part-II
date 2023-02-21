@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// Head Recursive 
 int Factorial(int n){
     // base case 
     if(n==0) return 1;
