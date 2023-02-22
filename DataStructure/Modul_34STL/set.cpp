@@ -31,7 +31,7 @@ int main()
 
     // O(log(n))
     // Erase
-    st.erase(5);
+    st.erase(7);
     for (auto i : st)
         cout << i << " ";
     cout << "\n";
