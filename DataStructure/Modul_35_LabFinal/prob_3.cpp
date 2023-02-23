@@ -90,9 +90,31 @@ public:
         }
         cout << "\n";
     }
+
     int getSize()
     {
         return sz;
+    }
+
+    void Merge(LinkedList a)
+    {
+        if (a.getSize() == 0)
+            return;
+
+        if (sz == 0)
+        {
+            head = a.head;
+            tail = a.tail;
+            return;
+        }
+        else
+        {
+            tail->nxt = a.head;
+            a.head->prv = tail;
+            tail = a.tail;
+        }
+        a.head = NULL;
+        a.tail = NULL;
     }
 };
 int main()
@@ -112,5 +134,9 @@ int main()
     b.insertMid(30);
     b.insertHead(9);
     b.insertTail(100);
+    b.print(); // prints  9 10 30 50 100
+
+    a.Merge(b);
+    a.print(); // prints  0 1 3 5 10 9 10 30 50 100
     b.print(); // prints  9 10 30 50 100
 }
