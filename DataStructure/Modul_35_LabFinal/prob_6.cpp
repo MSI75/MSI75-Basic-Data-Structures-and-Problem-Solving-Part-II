@@ -1,75 +1,43 @@
 #include <bits/stdc++.h>
-#define SIZE 100
 using namespace std;
 
-class Queue
+vector<int> ladder_array_sorted(vector<int> &ladder_array)
 {
-    int arr[SIZE];
-    int l, r, sz;
+    deque<int> dq;
+    vector<int> add;
+    for (int i = 0; i < ladder_array.size(); i++)
+        dq.push_back(ladder_array[i]);
 
-public:
-    Queue()
+    while (!dq.empty())
     {
-        l = 0;
-        r = -1;
-        sz = 0;
-    }
-
-    void enqueue(int value)
-    {
-        if (sz == SIZE)
+        if (dq.front() > dq.back())
         {
-            cout << "Queue is fully!\n";
-            return;
+            add.push_back(dq.back());
+            dq.pop_back();
         }
-        r++;
-        if (r == SIZE)
-            r = 0;
-        arr[r] = value;
-        sz++;
-    }
-
-    void dequeue()
-    {
-        if (sz == 0)
+        else
         {
-            cout << "Queue is empty!\n";
-            return;
+            add.push_back(dq.front());
+            dq.pop_front();
         }
-        l++;
-        if (l == SIZE)
-            l = 0;
-        sz--;
     }
+    return add;
+}
 
-    int front(){
-         if (sz == 0)
-        {
-            cout << "Queue is empty!\n";
-            return -1;
-        }
-        return arr[l];
-    }
-};
+int main()
+{
+    int n;
+    cin >> n;
 
-int main(){
-    Queue q;
-    q.enqueue(7);
-    q.enqueue(6);
-    q.enqueue(5);
-    q.enqueue(4);
-    q.enqueue(3);
+    vector<int> arr(n);
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
 
+    vector<int> ans = ladder_array_sorted(arr);
 
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
-    cout << q.front() << "\n";
-    q.dequeue();
+    for (int i = 0; i < n; i++)
+        cout << ans[i] << " ";
+    cout << "\n";
 
+    return 0;
 }
