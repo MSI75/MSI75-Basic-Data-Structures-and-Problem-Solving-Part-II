@@ -50,19 +50,6 @@ public:
         nodes.pop_back();
         down_heapify(idx);
     }
-
-    int find(int x)
-    {
-        for (int i = 0; i < nodes.size(); i++)
-        {
-            if (nodes[i] == x)
-            {
-                return i;
-            }
-        }
-        return -1; // element not found
-    }
-
     int getMax()
     {
         if (nodes.empty())

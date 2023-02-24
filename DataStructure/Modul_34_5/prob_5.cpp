@@ -21,7 +21,7 @@ int main()
 
     for (int i = 0; i < n2; i++)
     {
-        if (st.find(arr2[i]) != st.end())
+        if (st.find(arr2[i]) == st.end())
         {
             cout << arr2[i] << " ";
         }
