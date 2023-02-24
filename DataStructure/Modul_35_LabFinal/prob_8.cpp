@@ -3,6 +3,7 @@ using namespace std;
 
 class MaxHeap
 {
+  vector<int> nodes;
     void up_heapify(int idx)
     {
         while (idx > 0 && nodes[idx] > nodes[(idx - 1) / 2])
@@ -34,7 +35,6 @@ class MaxHeap
     }
 
 public:
-    vector<int> nodes;
     MaxHeap() {}
 
     void insert(int x)
