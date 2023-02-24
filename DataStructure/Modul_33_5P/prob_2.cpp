@@ -79,4 +79,19 @@ int main()
     heap.Delete(0);
     heap.Print();
     cout << heap.size() << "\n";
+
+
+    heap.Delete(0);
+    heap.Print();
+    cout << heap.size() << "\n";
+
+
+    heap.Delete(0);
+    heap.Print();
+    cout << heap.size() << "\n";
+
+
+    heap.Delete(0);
+    heap.Print();
+    cout << heap.size() << "\n";
 }
