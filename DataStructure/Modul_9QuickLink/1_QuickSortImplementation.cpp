@@ -13,7 +13,7 @@ vector<int> quick_sort(vector<int> &arr)
     vector<int> a, b;
     for (int i = 0; i < arr.size(); i++)
     {
-        if (i == arr[pivot])
+        if (i == pivot)
             continue;
 
         if (arr[i] <= arr[pivot])
