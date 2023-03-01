@@ -504,10 +504,10 @@
 //     Node* next_to_next;
 // };
 
-// #include<iostream>
-// using namespace std;
-// int main(){
-//     int p = NULL;
-//     cout<<p<<"\n";
-// }
+#include<iostream>
+using namespace std;
+int main(){
+    int p = NULL;
+    cout<<p<<"\n";
+}
 
