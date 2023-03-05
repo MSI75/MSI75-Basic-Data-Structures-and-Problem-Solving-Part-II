@@ -464,50 +464,124 @@
 //     return 0;
 // }
 
-#include <bits/stdc++.h>
-using namespace std;
+// #include <bits/stdc++.h>
+// using namespace std;
 
-int main()
-{
-    map<int,int>mp;
-    mp[0] = 11;
-    mp[1] = 15;
-    mp[2] = 25;
-    // auto p = mp.find(0);
-    // cout<<p->second<<"\n";
-    return 0;
-}
+// int main()
+// {
+//     map<int,int>mp;
+//     mp[0] = 11;
+//     mp[1] = 15;
+//     mp[2] = 25;
+//     // auto p = mp.find(0);
+//     // cout<<p->second<<"\n";
+//     return 0;
+// }
 
+// class Node {
+//      float data;
+//     char ch;
+//     Node* next;
+//     Node* next_to_next;
+// public:
 
-class Node {
-     float data;
-    char ch;
-    Node* next;
-    Node* next_to_next;
-public:
-    
-    // Constructor to initialize the node
-    Node(float val, char c) {
-        data = val;
-        ch = c;
-        next = NULL;
-        next_to_next = NULL;
-    }
-};
+//     // Constructor to initialize the node
+//     Node(float val, char c) {
+//         data = val;
+//         ch = c;
+//         next = NULL;
+//         next_to_next = NULL;
+//     }
+// };
 
+// class Node {
+// public:
+//     float val;
+//     char ch;
+//     Node* next;
+//     Node* next_to_next;
+// };
 
-class Node {
-public:
-    float val;
-    char ch;
-    Node* next;
-    Node* next_to_next;
-};
+// #include<iostream>
+// using namespace std;
+// int main(){
+//     int p = NULL;
+//     cout<<p<<"\n";
+// }
 
-#include<iostream>
-using namespace std;
-int main(){
-    int p = NULL;
-    cout<<p<<"\n";
-}
+// #include <bits/stdc++.h>
+// using namespace std;
 
+// int main()
+// {
+//     int t;
+//     cin >> t;
+
+//     while (t--)
+//     {
+//         int n;
+//         cin >> n;
+
+//         string s;
+//         cin >> s;
+
+//         string valid = "meow";
+
+//         // we will compress our string
+//         string compress = "";
+
+//         char ch = '#';
+
+//         for (int i = 0; i < n; ++i)
+//         {
+
+//             // val store the differnece between ASCII value
+//             // differece between any Lower_case and Upper_case character is 32
+//             //'a' - 'A' = 32, 'b' - B = 32
+//             // so if val is not 32 it means they are different
+
+//             int val = abs(ch - s[i]);
+
+//             // whenver the character will match with our current
+//             // character we will don nothing
+//             if (ch == s[i] || val == 32)
+//                 continue;
+//             else
+//             {
+//                 // we will add current character to compress string
+//                 compress += s[i];
+
+//                 // change our current character to s[i]
+//                 ch = s[i];
+//             }
+//         }
+
+//         cout << compress << "\n";
+
+//         int f = 0;
+
+        
+//         if (compress.size() != valid.size())
+//         {
+//             cout << "NO\n";
+//             continue;
+//         }
+
+      
+//         for (int i = 0; i < 4; ++i)
+//         {
+//             int val = abs(compress[i] - valid[i]);
+
+//             if (val != 32 && val != 0)
+//             {
+//                 f = 1;
+//                 break;
+//             }
+//         }
+
+//         if (f)
+//             cout << "NO\n";
+//         else
+//             cout << "YES\n";
+//     }
+// }

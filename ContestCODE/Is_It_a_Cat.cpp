@@ -1,47 +1,64 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool IsItACat(char str[], int n)
+string ReplaceComp(string s, int n)
 {
-    if (n < 0)
-        return false;
+    string compress = "";
+
+    char ch = '#';
+
     for (int i = 0; i < n; i++)
     {
-        if (str[i] == 'm' || str[i] == 'M' && str[i] == 'e' || str[i] == 'E' && str[i] == 'o' || str[i] == 'O' && str[i] == 'w' || str[i] == 'W')
-            return true;
+        int val = abs(s[i] - ch);
+
+        if (ch == s[i] || val == 0 || val == 32)
+            continue;
         else
-            return false;
+        {
+            compress += s[i];
+            ch = s[i];
+        }
     }
-    return false;
+    return compress;
 }
 
-void input(char str[], int n){
-    
+bool isItACat(string s, int n)
+{
+    string valid = "meow";
+    string temp = ReplaceComp(s, n);
+
+    if (valid.size() != temp.size())
+        return false;
+
+    for (int i = 0; i < valid.size(); i++)
+    {
+        int val = abs(temp[i] - valid[i]);
+
+        if (val != 32 && val != 0)
+            return false;
+        }
+
+    return true;
 }
 
 int main()
 {
-    int n;
-    cin >> n;
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
 
-    char str[n];
-    for (int i = 0; i < n; i++)
+    while (t--)
     {
-        int m;
-        cin >> m;
-        for (int j = 0; j < m; j++)
-        {
-            cin >> str[i];
-        }
-    }
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
 
-    for (int i = 0; i < n; i++)
-    {
-        if (IsItACat(str, n))
+        if (isItACat(s, n))
             cout << "YES\n";
         else
             cout << "NO\n";
     }
-
-    return 0;
 }
