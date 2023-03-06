@@ -560,14 +560,12 @@
 
 //         int f = 0;
 
-        
 //         if (compress.size() != valid.size())
 //         {
 //             cout << "NO\n";
 //             continue;
 //         }
 
-      
 //         for (int i = 0; i < 4; ++i)
 //         {
 //             int val = abs(compress[i] - valid[i]);
@@ -585,3 +583,59 @@
 //             cout << "YES\n";
 //     }
 // }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    int t;
+    cin >> t;
+
+    while (t--)
+    {
+        int n, k;
+        cin >> n >> k;
+
+        string s;
+        cin >> s;
+
+        vector<int> small(26), big(26);
+        for (auto &x : s)
+        {
+
+            if ('a' <= x && x <= 'z')
+            {
+                small[x - 'a']++;
+            }
+            else
+                big[x - 'A']++;
+        }
+
+        int ans = 0;
+
+        for (int i = 0; i < 26; ++i)
+        {
+            int x = small[i];
+            int y = big[i];
+
+            int mn = min(x, y);
+            ans += mn;
+            x -= mn;
+            y -= mn;
+
+            if (x == 0)
+                x = y;
+
+            int more = (x / 2);
+            more = min(more, k);
+            k -= more;
+            ans += more;
+        }
+
+        cout << ans << "\n";
+    }
+}
