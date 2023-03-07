@@ -21,7 +21,7 @@ int main()
 
         for (int i = 0; i < n; i++)
         {
-            if ('a' <= s[i] && s[i] <= 'z')
+            if ('a' <= s[i])
                 mmp[s[i]]++;
 
             else
